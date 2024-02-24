@@ -12,6 +12,11 @@ router.get('/', (req, res) => {
     include: [{
       model: Category,
       attributes: ['category_name']
+    },
+    {
+      model: Tag,
+      attributes: ['tag_name'],
+      through: { attributes: [] } 
     }]
   })
   .then(ProductData => res.json(ProductData))
